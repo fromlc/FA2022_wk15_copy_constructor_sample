@@ -43,7 +43,7 @@ MemoryTracker::MemoryTracker(const MemoryTracker& m1) {
 
     cout << "Copy constructor allocating " << len << " ints at ";
 
-    // allocate memory for the 
+    // allocate memory for m2
     pTrackAddress = new int[len];
 
     // copy block length and data from this instance
