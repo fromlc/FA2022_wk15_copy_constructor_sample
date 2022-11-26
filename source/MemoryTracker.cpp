@@ -54,6 +54,8 @@ MemoryTracker::~MemoryTracker(void) {
 }
 
 //------------------------------------------------------------------------------
+// getter for debug access
+//------------------------------------------------------------------------------
 int MemoryTracker::getLength() {
     return *pTrackAddress;
 }
