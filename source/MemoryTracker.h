@@ -28,6 +28,7 @@ public:
     MemoryTracker(const MemoryTracker& mt);     // copy constructor
     ~MemoryTracker();                           // destructor
     int getLength(void);                        // getter for debugging
+    MemoryTracker& operator=(const MemoryTracker& m2);
 };
 
 //------------------------------------------------------------------------------

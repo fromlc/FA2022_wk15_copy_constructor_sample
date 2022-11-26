@@ -33,9 +33,9 @@ MemoryTracker::MemoryTracker(int len) {
 
 //------------------------------------------------------------------------------
 // copy constructor
-//      - called on assignment operation: m2 = m1
+//      - called on assignment operation: m2 = m1 where m2 does not yet exist
 //      - m1 is the existing instance
-//      - "this" is m2
+//      - "this" is m2, the new instance
 //------------------------------------------------------------------------------
 MemoryTracker::MemoryTracker(const MemoryTracker& m1) {
     // get block length to allocate
@@ -66,4 +66,17 @@ MemoryTracker::~MemoryTracker(void) {
 //------------------------------------------------------------------------------
 int MemoryTracker::getLength() {
     return *pTrackAddress;
+}
+
+//------------------------------------------------------------------------------
+// overload assignment operator =
+//      called on m1 = m2 assignment where m1 already exists
+//------------------------------------------------------------------------------
+MemoryTracker& MemoryTracker::operator=(const MemoryTracker& m2) {
+    if (this != &m2) {
+        delete[] pTrackAddress;
+
+        pTrackAddress = m2.pTrackAddress;
+    }
+    return *this;
 }
