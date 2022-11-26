@@ -25,7 +25,7 @@ private:
 
 public:
     MemoryTracker(int len);                     // normal constructor
-    MemoryTracker(const MemoryTracker& obj);    // copy constructor
+    MemoryTracker(const MemoryTracker& mt);     // copy constructor
     ~MemoryTracker();                           // destructor
     int getLength(void);                        // getter for debugging
 };

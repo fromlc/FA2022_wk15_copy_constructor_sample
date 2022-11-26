@@ -33,16 +33,24 @@ MemoryTracker::MemoryTracker(int len) {
 
 //------------------------------------------------------------------------------
 // copy constructor
+//      - called on assignment operation: m2 = m1
+//      - m1 is the existing instance
+//      - "this" is m2
 //------------------------------------------------------------------------------
-MemoryTracker::MemoryTracker(const MemoryTracker& obj) {
-    cout << "Copy constructor allocating " << *(obj.pTrackAddress)
-        << " ints at ";
+MemoryTracker::MemoryTracker(const MemoryTracker& m1) {
+    // get block length to allocate
+    int len = *(m1.pTrackAddress);
 
-    pTrackAddress = new int;
-    *pTrackAddress = *obj.pTrackAddress; // copy the value
+    cout << "Copy constructor allocating " << len << " ints at ";
 
+    // allocate memory for the 
+    pTrackAddress = new int[len];
+
+    // copy block length and data from this instance
+    memcpy(pTrackAddress, m1.pTrackAddress, len * sizeof(int));
+
+    // display the address of allocated memory
     cout << pTrackAddress << '\n';
-
 }
 
 //------------------------------------------------------------------------------
